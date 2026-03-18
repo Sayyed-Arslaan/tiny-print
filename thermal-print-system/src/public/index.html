@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Printer Web Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thermal Printer Web Tool</h1>
+
+        <!-- Status Section -->
+        <div class="section status-section">
+            <p>Status: <span id="status-text" class="status-disconnected">Disconnected</span></p>
+            <button id="btn-status">Check Status</button>
+        </div>
+
+        <!-- Connection Section -->
+        <div class="section connection-section">
+            <h2>Connection</h2>
+            <div class="row">
+                <label for="printer-select">Discovered Bluetooth Printers:</label>
+                <select id="printer-select">
+                    <option value="">-- Select a printer --</option>
+                </select>
+                <button id="btn-refresh-printers">Refresh</button>
+            </div>
+
+            <div class="row">
+                <label for="manual-connect">Or manual port (e.g. COM3 or MAC address):</label>
+                <input type="text" id="manual-connect" placeholder="COM3 or 00:11:22:33:44:55">
+                <select id="connection-type">
+                    <option value="bluetooth">Bluetooth</option>
+                    <option value="serial">Serial (COM)</option>
+                </select>
+            </div>
+
+            <div class="row actions">
+                <button id="btn-connect" class="primary">Connect Printer</button>
+                <button id="btn-disconnect" class="danger">Disconnect</button>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="section settings-section">
+            <h2>Printer Settings</h2>
+            <div class="row">
+                <label for="paper-width">Paper Width:</label>
+                <select id="paper-width">
+                    <option value="58">58mm (Default)</option>
+                    <option value="80">80mm</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="image-density">Image Density/Brightness:</label>
+                <input type="range" id="image-density" min="-128" max="128" value="0" style="width: 200px;">
+                <span id="density-value">0</span>
+            </div>
+        </div>
+
+        <!-- Print Text Section -->
+        <div class="section text-section">
+            <h2>Print Text</h2>
+            <div class="formatting-toolbar">
+                <button id="btn-align-left" class="toggle-btn active" data-align="LT">Left</button>
+                <button id="btn-align-center" class="toggle-btn" data-align="CT">Center</button>
+                <button id="btn-align-right" class="toggle-btn" data-align="RT">Right</button>
+                <span class="separator">|</span>
+                <button id="btn-style-bold" class="toggle-btn" data-style="B">Bold</button>
+            </div>
+            <textarea id="text-input" rows="5" placeholder="Enter text to print..."></textarea>
+            <button id="btn-print-text" class="primary">Print Text</button>
+        </div>
+
+        <!-- Print Image Section -->
+        <div class="section image-section">
+            <h2>Print Image</h2>
+            <div class="row">
+                <input type="file" id="image-upload" accept="image/png, image/jpeg, image/jpg">
+                <button id="btn-print-image" class="primary" disabled>Print Image</button>
+            </div>
+            <div class="preview-container">
+                <p>Preview (Bilevel/Dithered):</p>
+                <canvas id="image-preview" width="464" height="0"></canvas>
+            </div>
+        </div>
+
+        <!-- Print QR Code Section -->
+        <div class="section qr-section">
+            <h2>Print QR Code</h2>
+            <div class="row">
+                <input type="text" id="qr-input" placeholder="Enter data for QR code...">
+                <label for="qr-size">Size:</label>
+                <input type="number" id="qr-size" value="6" min="1" max="16" style="width: 60px;">
+                <button id="btn-print-qr" class="primary">Print QR</button>
+            </div>
+        </div>
+
+        <!-- Console / Logs -->
+        <div class="section console-section">
+            <h2>Console / Logs</h2>
+            <div id="console-output"></div>
+            <button id="btn-clear-console">Clear Console</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
