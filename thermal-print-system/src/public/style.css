@@ -1,0 +1,168 @@
+:root {
+    --primary: #4CAF50;
+    --primary-hover: #45a049;
+    --danger: #f44336;
+    --danger-hover: #da190b;
+    --bg: #f9f9f9;
+    --text: #333;
+    --border: #ccc;
+    --light-border: #eee;
+    --highlight: #e0e0e0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    margin-top: 0;
+    color: #222;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light-border);
+}
+
+.row {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+button.primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+button.primary:hover {
+    background-color: var(--primary-hover);
+}
+
+button.danger {
+    background-color: var(--danger);
+    color: white;
+}
+
+button.danger:hover {
+    background-color: var(--danger-hover);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.formatting-toolbar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.toggle-btn {
+    background-color: #f1f1f1;
+    border: 1px solid var(--border);
+}
+
+.toggle-btn.active {
+    background-color: var(--highlight);
+    font-weight: bold;
+    border-color: #888;
+}
+
+.separator {
+    color: var(--border);
+    margin: 0 5px;
+}
+
+.status-section p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.status-disconnected {
+    color: var(--danger);
+}
+
+.status-connected {
+    color: var(--primary);
+}
+
+.preview-container {
+    margin-top: 15px;
+    border: 1px dashed var(--border);
+    padding: 10px;
+    background: #fafafa;
+    text-align: center;
+    overflow-x: auto;
+}
+
+canvas#image-preview {
+    max-width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    /* Dithered images usually look best without smooth scaling */
+    image-rendering: pixelated;
+}
+
+#console-output {
+    background: #2d2d2d;
+    color: #00ff00;
+    padding: 10px;
+    height: 150px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}

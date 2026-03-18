@@ -1,0 +1,7 @@
+====================================================
+SECURITY TOKEN (Required for API usage):
+fd0390063fac6d4250ff17d27eb18d52
+====================================================
+(node:64089) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Thermal Printer Web Tool is running at http://localhost:3000
